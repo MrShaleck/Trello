@@ -2,27 +2,6 @@ $(function() {
         // here we will put the code of our application
 
 
-        var table = {
-                name: 'project',
-                element: < jQuery
-        element > // for example $('div')
-        };
-
-        var column = {
-                id: 12j82da20k,
-                name: 'todo',
-                element: < jQuery
-        element > // for example $('div')
-        };
-
-        var card = {
-                id: '2kd8s958ka',
-                description: 'Create Kanban app',
-                color: 'green',
-                element: < jQuery
-        element >
-        };
-
         function randomString() {
             var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
             var str = '';
@@ -52,7 +31,7 @@ $(function() {
                     self.removeColumn();
                 });
                 $columnAddCard.click(function(event) {
-                    self.addCard(new Card('prompt("Enter the name of the card")));
+                    self.addCard(new Card(prompt("Enter the name of the card")));
                 });
             // CONSTRUCTION COLUMN ELEMENT
                 $column.append($columnTitle)
@@ -63,7 +42,7 @@ $(function() {
             // RETURN OF CREATED COLUMN
                 return $column;
             }
-        }
+        };
         Column.prototype = {
             addCard: function(card) {
                 this.$element.children('ul').append(card.$element);
@@ -71,8 +50,14 @@ $(function() {
             removeColumn: function() {
                 this.$element.remove();
             }
-            this.$element.children('ul').append(card.$element);
-            };
+        };
+        function Card(description){
+            var self = this;
+
+            this.id = randomString();
+            this.description = description;
+            this.$element = createCard();
+        }
             function createCard() {
                 // CREATING THE BLOCKS
                 var $card = $('<li>').addClass('card');
@@ -94,7 +79,7 @@ $(function() {
                 removeCard: function() {
                     this.$element.remove();
                 }
-            }
+            };
 
             var board = {
                 name: 'Kanban Board',
@@ -105,7 +90,7 @@ $(function() {
                 $element: $('#board .column-container')
             };
 
-            $('#board .column-container');
+            // $('#board .column-container');
 
         function initSortable() {
             $('.column-card-list').sortable({
@@ -137,7 +122,7 @@ $(function() {
         // DODAWANIE KART DO KOLUMN
         todoColumn.addCard(card1);
         doingColumn.addCard(card2);
-})
+});
 
 
 
