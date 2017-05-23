@@ -33,6 +33,7 @@ $(function() {
                 $columnAddCard.click(function(event) {
                     self.addCard(new Card(prompt("Enter the name of the card")));
                 });
+
             // CONSTRUCTION COLUMN ELEMENT
                 $column.append($columnTitle)
                     .append($columnDelete)
@@ -65,16 +66,16 @@ $(function() {
                 var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
                 // PRZYPIĘCIE ZDARZENIA
-                $cardDelete.click(function(){
+                 $cardDelete.click(function(){
                     self.removeCard();
-                });
+               });
 
                 // SKŁADANIE I ZWRACANIE KARTY
-                $card.append($cardDelete)
-                    .append($cardDescription);
+                $card.append($cardDescription)
+                    .append($cardDelete);
 
                 return $card;
-            }
+            };
             Card.prototype = {
                 removeCard: function() {
                     this.$element.remove();
