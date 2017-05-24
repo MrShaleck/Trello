@@ -52,13 +52,13 @@ $(function() {
                 this.$element.remove();
             }
         };
-        function Card(description){
+        function Card(description) {
             var self = this;
 
             this.id = randomString();
             this.description = description;
             this.$element = createCard();
-        }
+
             function createCard() {
                 // CREATING THE BLOCKS
                 var $card = $('<li>').addClass('card');
@@ -66,16 +66,17 @@ $(function() {
                 var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
                 // PRZYPIĘCIE ZDARZENIA
-                 $cardDelete.click(function(){
+                $cardDelete.click(function () {
                     self.removeCard();
-               });
+                });
 
                 // SKŁADANIE I ZWRACANIE KARTY
                 $card.append($cardDescription)
                     .append($cardDelete);
 
                 return $card;
-            };
+            }
+        };
             Card.prototype = {
                 removeCard: function() {
                     this.$element.remove();
